@@ -3,3 +3,11 @@ export const JOBS = [
   { title: "CEO", details: "Send emails", id: "job-2" },
   { title: "HR Person", details: "Fire people", id: "job-3" },
 ];
+
+export const USERS = [
+  {
+    username: "testUser",
+    password: "testPassword",
+    email: "testUser@fakeemail.com",
+  },
+];

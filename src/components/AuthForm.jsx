@@ -1,28 +1,31 @@
 import {
-  useNavigate,
   Link,
   Form,
   useNavigation,
   useActionData,
-  redirect,
   useSearchParams,
 } from "react-router";
 
 import classes from "./AuthForm.module.css";
 
-export default function LoginForm() {
+export default function AuthForm() {
   const data = useActionData();
-  const nav = useNavigate();
   const navigation = useNavigation();
 
   const [searchParams] = useSearchParams();
-
   const isLogin = searchParams.get("mode") === "login";
   const isSubmitting = navigation.state === "submitting";
 
   return (
     <Form method="post" className={classes.form}>
       <h1>{isLogin ? "Log in" : "New User Sign Up"}</h1>
+      {data && data.errors && (
+        <ul>
+          {data.errors.map((err) => (
+            <li key={err}>{err}</li>
+          ))}
+        </ul>
+      )}
       {!isLogin && (
         <p>
           <input
