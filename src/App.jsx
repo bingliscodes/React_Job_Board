@@ -7,6 +7,8 @@ import JobDetailsPage, {
 import JobsRootLayout from "./routes/JobsRoot";
 import HomePage from "./routes/Home";
 import JobForm, { action as jobFormAction } from "./components/JobForm";
+import LoginPage from "./routes/Login";
+import { action as loginAction } from "./components/LoginForm";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,12 @@ const router = createBrowserRouter([
             element: <JobForm />,
           },
         ],
+      },
+      {
+        path: "login",
+        id: "login",
+        action: loginAction,
+        element: <LoginPage />,
       },
     ],
   },
