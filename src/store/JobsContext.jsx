@@ -4,15 +4,15 @@ import { JOBS } from "../assets/helperData";
 
 export const JobsContext = createContext({
   jobs: [],
-  addJob: () => {},
-  removeJob: () => {},
+  addJob: (job) => {},
+  removeJob: (id) => {},
 });
 
 export function JobsContextProvider({ children }) {
   const [jobs, setJobs] = useState(JOBS);
 
   function addJob(job) {
-    setJobs((prevJobs) => [...prevJobs, job]);
+    setJobs((prevJobs) => [job, ...prevJobs]);
   }
 
   function removeJob(jobId) {
@@ -20,9 +20,10 @@ export function JobsContextProvider({ children }) {
   }
 
   const jobsContext = {
-    jobs,
+    jobs: jobs,
     addJob,
     removeJob,
   };
+
   return <JobsContext value={jobsContext}>{children}</JobsContext>;
 }

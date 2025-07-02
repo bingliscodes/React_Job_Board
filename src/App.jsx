@@ -5,7 +5,7 @@ import JobDetailsPage, {
   loader as jobDetailsLoader,
 } from "./routes/JobDetails";
 import JobsRootLayout from "./routes/JobsRoot";
-import JobForm, { action as jobFormAction } from "./components/JobForm";
+import NewJobPage, { action as newJobAction } from "./routes/NewJob";
 import AuthPage, { action as authAction } from "./routes/Authentication";
 import { JobsContextProvider } from "./store/JobsContext";
 
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
           {
             path: "new",
             id: "job-new",
-            action: jobFormAction,
-            element: <JobForm />,
+            action: newJobAction,
+            element: <NewJobPage />,
           },
         ],
       },
