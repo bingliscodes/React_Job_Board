@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import classes from "./JobsList.module.css";
 
 export default function JobsList({ jobs }) {
-  console.log(jobs);
   return (
     <div className={classes.jobs}>
       <h1>All Jobs</h1>
