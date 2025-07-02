@@ -7,6 +7,7 @@ import JobDetailsPage, {
 import JobsRootLayout from "./routes/JobsRoot";
 import JobForm, { action as jobFormAction } from "./components/JobForm";
 import AuthPage, { action as authAction } from "./routes/Authentication";
+import { JobsContextProvider } from "./store/JobsContext";
 
 const router = createBrowserRouter([
   {
@@ -42,8 +43,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
-  return <RouterProvider router={router} />;
+export default function App() {
+  return (
+    <JobsContextProvider>
+      <RouterProvider router={router} />
+    </JobsContextProvider>
+  );
 }
-
-export default App;

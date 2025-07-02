@@ -1,7 +1,9 @@
-import { JOBS } from "../assets/helperData";
+import { useContext } from "react";
+import { JobsContext } from "../store/JobsContext";
 
 import JobsList from "../components/JobsList";
 
 export default function Jobs() {
-  return <JobsList jobs={JOBS} />;
+  const { jobs } = useContext(JobsContext);
+  return <JobsList jobs={jobs} />;
 }
