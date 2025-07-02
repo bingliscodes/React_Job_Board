@@ -9,7 +9,7 @@ export default function JobsNavigation() {
         <ul className={classes.list}>
           <li>
             <NavLink
-              to="/jobs"
+              to="/"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
@@ -21,7 +21,7 @@ export default function JobsNavigation() {
 
           <li>
             <NavLink
-              to="/jobs/new"
+              to="/new"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }

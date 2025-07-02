@@ -6,7 +6,7 @@ import {
   redirect,
 } from "react-router";
 
-import classes from "./LoginForm.module.css";
+import classes from "./AuthForm.module.css";
 
 export default function LoginForm({ signup }) {
   const data = useActionData();

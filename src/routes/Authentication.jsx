@@ -1,8 +1,8 @@
 import { redirect } from "react-router";
-import LoginForm from "../components/LoginForm";
+import AuthForm from "../components/AuthForm";
 
 export default function Login() {
-  return <LoginForm />;
+  return <AuthForm />;
 }
 
 export async function action({ request, params }) {
@@ -13,6 +13,7 @@ export async function action({ request, params }) {
     username: data.get("username"),
     password: data.get("password"),
   };
+
   console.log(loginData);
 
   return redirect("");

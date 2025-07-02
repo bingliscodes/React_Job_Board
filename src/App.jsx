@@ -5,9 +5,8 @@ import JobDetailsPage, {
   loader as jobDetailsLoader,
 } from "./routes/JobDetails";
 import JobsRootLayout from "./routes/JobsRoot";
-import HomePage from "./routes/Home";
 import JobForm, { action as jobFormAction } from "./components/JobForm";
-import LoginPage, { action as loginAction } from "./routes/Login";
+import AuthPage, { action as authAction } from "./routes/Authentication";
 
 const router = createBrowserRouter([
   {
@@ -15,9 +14,8 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     id: "root",
     children: [
-      { index: true, element: <HomePage /> },
       {
-        path: "jobs",
+        path: "/",
         element: <JobsRootLayout />,
         children: [
           { index: true, element: <JobsPage /> },
@@ -36,10 +34,10 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: ":mode",
+        path: "auth",
         id: "login",
-        action: loginAction,
-        element: <LoginPage />,
+        action: authAction,
+        element: <AuthPage />,
       },
     ],
   },
