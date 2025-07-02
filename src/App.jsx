@@ -7,8 +7,7 @@ import JobDetailsPage, {
 import JobsRootLayout from "./routes/JobsRoot";
 import HomePage from "./routes/Home";
 import JobForm, { action as jobFormAction } from "./components/JobForm";
-import LoginPage from "./routes/Login";
-import { action as loginAction } from "./components/LoginForm";
+import LoginPage, { action as loginAction } from "./routes/Login";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +36,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "login",
+        path: ":mode",
         id: "login",
         action: loginAction,
         element: <LoginPage />,

@@ -8,15 +8,20 @@ import {
 
 import classes from "./LoginForm.module.css";
 
-export default function LoginForm({ event }) {
+export default function LoginForm({ signup }) {
+  const data = useActionData();
   const nav = useNavigate();
+
+  function handleSubmit() {
+    console.log("here");
+  }
 
   function handleCancel() {
     nav("..");
   }
 
   return (
-    <Form method="POST" className={classes.form}>
+    <Form method="POST" onSubmit={handleSubmit} className={classes.form}>
       <p>
         <input
           placeholder="username"
@@ -35,23 +40,23 @@ export default function LoginForm({ event }) {
           required
         />
       </p>
+      {signup && (
+        <p>
+          <input
+            placeholder="confirm password"
+            id="confirmPassword"
+            type="password"
+            name="confirmPassword"
+            required
+          />
+        </p>
+      )}
       <div className={classes.actions}>
         <button type="button" onClick={handleCancel}>
           Cancel
         </button>
-        <button>Login</button>
+        <button>{signup ? "Register" : "Login"}</button>
       </div>
     </Form>
   );
-}
-
-export async function action({ request, params }) {
-  const data = await request.formData();
-
-  const loginData = {
-    username: data.get("username"),
-    password: data.get("password"),
-  };
-
-  return redirect("..");
 }
