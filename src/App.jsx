@@ -6,7 +6,9 @@ import JobDetailsPage, {
 } from "./routes/JobDetails";
 import JobsRootLayout from "./routes/JobsRoot";
 import NewJobPage, { action as newJobAction } from "./routes/NewJob";
-import JobApplicationPage from "./routes/JobApplication";
+import JobApplicationPage, {
+  action as applicationAction,
+} from "./routes/JobApplication";
 import AuthPage, { action as authAction } from "./routes/Authentication";
 import { JobsContextProvider } from "./store/JobsContext";
 
@@ -33,6 +35,7 @@ const router = createBrowserRouter([
               {
                 path: "apply",
                 id: "job-app",
+                action: applicationAction,
                 element: <JobApplicationPage />,
               },
             ],

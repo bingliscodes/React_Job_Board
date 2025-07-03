@@ -53,7 +53,7 @@ export default function AuthForm() {
         />
       </p>
       <p style={{ textAlign: "left" }}>Select file to upload</p>
-      <input type="file" id="file" name="file" />
+      <input type="file" id="file" name="resume" />
       <div className={classes.actions}>
         <button disabled={isSubmitting}>
           {isSubmitting ? "Submitting..." : "Submit"}

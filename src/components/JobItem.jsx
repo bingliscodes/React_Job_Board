@@ -8,7 +8,11 @@ export default function JobItem({ job }) {
       <h1>{job.title}</h1>
       <p>{job.details}</p>
       <p>
-        <button>Apply Now!</button>
+        <div className={classes.actions}>
+          <button>
+            <Link to="apply">Apply Now!</Link>
+          </button>
+        </div>
       </p>
       <Link to="..">Return to all jobs</Link>
     </article>
