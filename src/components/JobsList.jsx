@@ -4,14 +4,18 @@ import { JobsContext } from "../store/JobsContext";
 
 import classes from "./JobsList.module.css";
 
-export default function JobsList() {
+export default function JobsList({ searchText }) {
   const { jobs } = useContext(JobsContext);
-
+  let filteredJobs = [...jobs];
+  if (searchText) {
+    filteredJobs = jobs.filter((job) =>
+      job.title.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }
   return (
     <div className={classes.jobs}>
-      <h1>All Jobs</h1>
       <ul className={classes.list}>
-        {jobs.map((job) => (
+        {filteredJobs.map((job) => (
           <li key={job.id} className={classes.item}>
             <Link to={`${job.id}`}>{job.title}</Link>
           </li>

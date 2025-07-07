@@ -18,11 +18,9 @@ export async function action({ request }) {
   return jobData;
 }
 
-export async function loader({ request }) {
+export async function loader() {
   const userId = getUserId();
-  if (userId) {
-    console.log(`logged in as ${userId}`);
-  } else {
+  if (!userId) {
     alert("Please log in to post a new job");
     return redirect("/auth?mode=login");
   }
