@@ -1,5 +1,5 @@
 import { redirect } from "react-router";
-
+import { getUserId } from "../util/login";
 import JobForm from "../components/JobForm";
 
 export default function NewJob() {
@@ -16,4 +16,14 @@ export async function action({ request }) {
   };
 
   return jobData;
+}
+
+export async function loader({ request }) {
+  const userId = getUserId();
+  if (userId) {
+    console.log(`logged in as ${userId}`);
+  } else {
+    alert("Please log in to post a new job");
+    return redirect("/auth?mode=login");
+  }
 }

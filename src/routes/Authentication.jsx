@@ -36,6 +36,10 @@ export async function action({ request }) {
       authData.errors.push("Invalid password");
     } else {
       alert("Login successful. You will now be redirected to the home page.");
+      localStorage.setItem(
+        "session",
+        JSON.stringify({ loggedIn: true, userId: authData.username })
+      );
       return redirect("/");
     }
   }

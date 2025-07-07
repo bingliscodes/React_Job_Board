@@ -5,7 +5,10 @@ import JobDetailsPage, {
   loader as jobDetailsLoader,
 } from "./routes/JobDetails";
 import JobsRootLayout from "./routes/JobsRoot";
-import NewJobPage, { action as newJobAction } from "./routes/NewJob";
+import NewJobPage, {
+  action as newJobAction,
+  loader as newJobLoader,
+} from "./routes/NewJob";
 import JobApplicationPage, {
   action as applicationAction,
 } from "./routes/JobApplication";
@@ -45,6 +48,7 @@ const router = createBrowserRouter([
             path: "new",
             id: "job-new",
             action: newJobAction,
+            loader: newJobLoader,
             element: <NewJobPage />,
           },
         ],
