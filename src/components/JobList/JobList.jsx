@@ -1,17 +1,19 @@
 import { Link } from "react-router";
 import { useContext } from "react";
-import { JobsContext } from "../store/JobsContext";
+import { JobsContext } from "../../store/JobsContext";
 
-import classes from "./JobsList.module.css";
+import classes from "./JobList.module.css";
 
-export default function JobsList({ searchText }) {
-  const { jobs } = useContext(JobsContext);
+export default function JobsList() {
+  const { jobs, filters } = useContext(JobsContext);
+
   let filteredJobs = [...jobs];
-  if (searchText) {
+  if (filteredJobs.search !== "") {
     filteredJobs = jobs.filter((job) =>
-      job.title.toLowerCase().includes(searchText.toLowerCase())
+      job.title.toLowerCase().includes(filters.search.toLowerCase())
     );
   }
+
   return (
     <div className={classes.jobs}>
       <ul className={classes.list}>

@@ -1,17 +1,21 @@
-import { useState } from "react";
-import JobsList from "../components/JobsList";
-import JobSearch from "../components/JobSearch";
-import JobFilter from "../components/JobFilter";
+import { useContext } from "react";
+
+import { JobsContext } from "../store/JobsContext";
+import JobsList from "../components/JobList/JobList";
+import JobListFilters from "../components/JobList/JobListFilters";
 
 export default function Jobs() {
-  const [searchText, setSearchText] = useState();
+  const { filters, setFilters } = useContext(JobsContext);
+
+  function handleSearchChange(search) {
+    setFilters((prevFilters) => ({ ...prevFilters, search }));
+  }
 
   return (
     <div>
       <h1>All Jobs</h1>
-      <JobSearch setSearchText={setSearchText} />
-      <JobFilter />
-      <JobsList searchText={searchText} />
+      <JobListFilters onSearchChange={handleSearchChange} />
+      <JobsList searchText={filters.search && undefined} />
     </div>
   );
 }
