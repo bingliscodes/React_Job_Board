@@ -1,4 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router";
+import { Provider } from "./components/ui/provider";
+import { ThemeProvider } from "next-themes";
+
 import RootLayout from "./routes/Root";
 import JobsPage from "./routes/Jobs";
 import JobDetailsPage, {
@@ -64,8 +67,12 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-    <JobsContextProvider>
-      <RouterProvider router={router} />
-    </JobsContextProvider>
+    <ThemeProvider>
+      <Provider>
+        <JobsContextProvider>
+          <RouterProvider router={router} />
+        </JobsContextProvider>
+      </Provider>
+    </ThemeProvider>
   );
 }

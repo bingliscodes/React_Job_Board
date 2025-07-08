@@ -6,7 +6,15 @@ export default function JobItem({ job }) {
   return (
     <article className={classes.job}>
       <h1>{job.title}</h1>
-      <p>{job.details}</p>
+      <p>
+        <h3>Job Description:</h3> {job.description}
+      </p>
+      <p>
+        <h3>Company:</h3> {job.company}
+      </p>
+      <p>
+        <h3>Location:</h3> {job.location}
+      </p>
       <p>
         <div className={classes.actions}>
           <button>

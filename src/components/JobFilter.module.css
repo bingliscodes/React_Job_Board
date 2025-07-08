@@ -1,0 +1,7 @@
+.stack {
+  display: block;
+  width: 100%;
+  font: inherit;
+  padding: 0.25rem;
+  margin-bottom: 1rem;
+}
