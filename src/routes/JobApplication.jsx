@@ -16,7 +16,6 @@ export async function action({ request, params }) {
     email: data.get("email"),
     resume: data.get("resume"),
   };
-  console.log(appData);
 
   return null;
 }

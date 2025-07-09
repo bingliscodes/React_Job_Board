@@ -7,7 +7,6 @@ import classes from "./JobList.module.css";
 export default function JobsList() {
   const { filteredJobs } = useContext(JobsContext);
 
-  console.log(filteredJobs);
   return (
     <div className={classes.jobs}>
       <ul className={classes.list}>
