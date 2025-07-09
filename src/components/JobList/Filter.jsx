@@ -6,9 +6,9 @@ export default function Filter({ label, name, data, onChange }) {
   const options = data.map((d) => ({ value: d, label: d }));
 
   return (
-    <div style={{ marginBottom: "1rem" }}>
+    <div className={classes.div}>
       <label htmlFor={name} className={classes.label}>
-        {label}:
+        {label}
       </label>
       <div className={classes.selectContainer}>
         <Select
