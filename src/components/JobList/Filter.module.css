@@ -1,0 +1,46 @@
+.label {
+  margin-right: 0.5rem;
+  color: #fff;
+}
+
+.selectContainer {
+  min-width: 250px;
+}
+
+/* You can't style react-select elements directly with class names.
+   Instead, use its `className` and `classNamePrefix` props to scope styles */
+:global(.reactSelect__control) {
+  background-color: #222 !important;
+  border-color: #444 !important;
+  color: black !important;
+}
+
+:global(.reactSelect__menu) {
+  background-color: #333;
+  color: #fff;
+}
+
+:global(.reactSelect__option) {
+  background-color: #333;
+  color: black !important;
+  cursor: pointer;
+}
+
+:global(.reactSelect__option--is-focused) {
+  background-color: #444;
+}
+
+:global(.reactSelect__multi-value) {
+  background-color: #555;
+}
+
+:global(.reactSelect__multi-value__label) {
+  color: black !important;
+}
+
+:global(.reactSelect__placeholder) {
+  color: #aaa;
+}
+
+
+

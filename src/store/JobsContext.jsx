@@ -14,9 +14,9 @@ export function JobsContextProvider({ children }) {
   const [jobs, setJobs] = useState(JOBS);
   const [filters, setFilters] = useState({
     search: "",
-    title: [],
-    company: [],
-    location: [],
+    titles: [],
+    companies: [],
+    locations: [],
   });
 
   function addJob(job) {

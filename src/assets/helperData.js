@@ -16,7 +16,7 @@ export const JOBS = [
   {
     title: "HR Person",
     description: "Fire people",
-    company: "Evil Company",
+    company: "Good Company",
     location: "Palo Alto, CA",
     id: "job-3",
   },
