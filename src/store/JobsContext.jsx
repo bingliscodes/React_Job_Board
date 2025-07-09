@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useMemo } from "react";
 
 import { JOBS } from "../assets/helperData";
 
@@ -6,7 +6,7 @@ export const JobsContext = createContext({
   jobs: [],
   addJob: (job) => {},
   removeJob: (id) => {},
-  filterJobs: (searchText) => {},
+  filteredJobs: [],
   filters: {},
 });
 
@@ -27,23 +27,34 @@ export function JobsContextProvider({ children }) {
     setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId));
   }
 
-  function filterJobs(searchText) {
-    if (searchText) {
-      setJobs((prevJobs) =>
-        prevJobs.filter((job) =>
-          job.title.toLowerCase().includes(searchText.toLowerCase())
-        )
-      );
-    }
-  }
+  const filteredJobs = useMemo(() => {
+    return jobs.filter((job) => {
+      const matchesSearch =
+        filters.search === "" ||
+        job.title.toLowerCase().includes(filters.search.toLowerCase());
+
+      const matchesTitle =
+        filters.titles.length === 0 || filters.titles.includes(job.title);
+
+      const matchesCompany =
+        filters.companies.length === 0 ||
+        filters.companies.includes(job.company);
+
+      const matchesLocation =
+        filters.locations.length === 0 ||
+        filters.locations.includes(job.location);
+
+      return matchesSearch && matchesTitle && matchesCompany && matchesLocation;
+    });
+  }, [jobs, filters]);
 
   const jobsContext = {
     jobs,
     addJob,
     removeJob,
-    filterJobs,
     filters,
     setFilters,
+    filteredJobs,
   };
 
   return <JobsContext value={jobsContext}>{children}</JobsContext>;

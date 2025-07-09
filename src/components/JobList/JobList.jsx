@@ -5,15 +5,9 @@ import { JobsContext } from "../../store/JobsContext";
 import classes from "./JobList.module.css";
 
 export default function JobsList() {
-  const { jobs, filters } = useContext(JobsContext);
+  const { filteredJobs } = useContext(JobsContext);
 
-  let filteredJobs = [...jobs];
-  if (filteredJobs.search !== "") {
-    filteredJobs = jobs.filter((job) =>
-      job.title.toLowerCase().includes(filters.search.toLowerCase())
-    );
-  }
-
+  console.log(filteredJobs);
   return (
     <div className={classes.jobs}>
       <ul className={classes.list}>
