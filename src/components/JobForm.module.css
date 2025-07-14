@@ -8,12 +8,14 @@
 .form textarea {
   display: block;
   width: 100%;
+  margin: 1rem auto;
 }
 
 .form input,
 .form textarea {
   font: inherit;
   padding: 0.25rem;
+  color: black;
 }
 
 .actions {
